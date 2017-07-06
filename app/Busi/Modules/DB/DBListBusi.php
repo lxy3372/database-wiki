@@ -8,16 +8,20 @@
 
 namespace App\Busi\Modules\DB;
 use App\Busi\Modules\BaseBusi;
+use App\Busi\Traits\DBTrait;
+use App\Models\Schemata;
 use App\Models\Tables;
 use Illuminate\Database\Eloquent\Model;
 
 class DBListBusi extends BaseBusi
 {
+	use DBTrait;
 	
 	public function handle()
 	{
-		$ret = Tables::whereTableSchema('test')->get(['table_name', 'table_comment'])->toArray();
-		return $ret;
+		//TODO 传db
+		$list = $this->getDbList(null, ['test']);
+		return $list->toArray();
 	}
 
 }
