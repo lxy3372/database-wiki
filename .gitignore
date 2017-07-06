@@ -2,9 +2,13 @@
 /public/hot
 /public/storage
 /storage/*.key
+/storage/logs/
 /vendor
 /.idea
 /.vagrant
+_ide_helper.php
+_ide_helper_models.php
+_migration_helper.php
 Homestead.json
 Homestead.yaml
 npm-debug.log
