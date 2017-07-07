@@ -10,7 +10,7 @@ class TableListController extends Controller
 	
 	public function index(TableListBusi $busi)
 	{
-		$ret = $busi->response();	
+		return response()->packet($busi->response());	
 	}
 	
 }

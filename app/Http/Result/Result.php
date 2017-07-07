@@ -7,7 +7,6 @@
  */
 
 namespace App\Http\Result;
-use App\Busi\Traits\TaskTrait;
 
 
 /**

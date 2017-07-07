@@ -18,9 +18,8 @@ class TableListBusi extends BaseBusi
 	public function handle()
 	{
 		$dbs = ['test'];
-		$list = Tables::whereIn('table_schema', $dbs)->get()->toArray();
-		var_dump($list);
-		return $list;
+		$list = Tables::whereIn('table_schema', $dbs)->get();
+		return $list->toArray();
 	}
 	
 }

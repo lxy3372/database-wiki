@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zhangsir <fei@zhangsir.me>
- * Date: 16-12-23
- * Time: 上午11:21
- */
 
 namespace App\Http;
 

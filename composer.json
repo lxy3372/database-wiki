@@ -6,10 +6,10 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.4.*",
-        "laravel/tinker": "~1.0",
         "barryvdh/laravel-ide-helper": "~2.3",
-        "doctrine/dbal": "~2.3"
+        "doctrine/dbal": "~2.3",
+        "laravel/framework": "5.4.*",
+        "laravel/tinker": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -42,6 +42,8 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan ide-helper:generate",
+            "php artisan ide-helper:meta",
             "php artisan optimize"
         ]
     },
@@ -49,13 +51,5 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    },
-    "scripts":{
-       "post-update-cmd": [
-         "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-         "php artisan ide-helper:generate",
-         "php artisan ide-helper:meta",
-         "php artisan optimize"
-       ]
     }
 }
