@@ -15,4 +15,6 @@ Route::get('/', 'IndexController@index');
 
 Route::get('/table/list', 'TableListController@index');
 
+Route::get('/table/detail', 'TableDetailController@index');
+
 Route::get('/docs', 'DocsController@index');

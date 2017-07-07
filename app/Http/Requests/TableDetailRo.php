@@ -24,4 +24,10 @@ class TableDetailRo extends BaseRo
 	 */
 	public $table_name;
 
+	/**
+	 * @var 库名
+	 * @reuired
+	 */
+	public $db;
+
 }
