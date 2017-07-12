@@ -19,8 +19,7 @@ class DBListBusi extends BaseBusi
 	
 	public function handle()
 	{
-		//TODO 传db
-		$list = $this->getDbList(null, ['test']);
+		$list = $this->getDbList(['schema_name', 'default_character_set_name'], ['test']);
 		return $list->toArray();
 	}
 

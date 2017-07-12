@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'IndexController@index');
+Route::get('/', 'DBController@index');
 
 Route::get('/table/list', 'TableListController@index');
 

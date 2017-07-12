@@ -10,15 +10,17 @@ namespace App\Busi\Modules\DB;
 
 
 use App\Busi\Modules\BaseBusi;
+use App\Http\Requests\TableListRo;
 use App\Models\Tables;
 
 class TableListBusi extends BaseBusi
 {
 
-	public function handle()
+	public function handle(TableListRo $ro)
 	{
-		$dbs = ['test'];
-		$list = Tables::whereIn('table_schema', $dbs)->get();
+		$db = [$ro->db];
+		$fields = ['table_schema', 'table_name', 'table_type', 'engine', 'table_rows', 'data_length', 'auto_increment', 'create_time', 'table_comment'];
+		$list = Tables::whereIn('table_schema', $db)->get($fields);
 		return $list->toArray();
 	}
 	

@@ -11,6 +11,7 @@ namespace App\Busi\Modules\DB;
 
 use App\Busi\Modules\BaseBusi;
 use App\Http\Requests\TableDetailRo;
+use App\Models\Columns;
 use App\Models\Tables;
 
 /**
@@ -29,7 +30,8 @@ class TableDetailBusi extends BaseBusi
 	 */
 	public function handle(TableDetailRo $ro)
 	{
-		$list = Tables::whereTableSchema($ro->db)->whereTableName($ro->table_name)->get();
+		$fields = ['table_schema', 'table_name', 'column_name', 'column_default', 'is_nullable', 'data_type', 'character_set_name', 'column_type', 'column_comment','column_key'];
+		$list = Columns::whereTableSchema($ro->db)->whereTableName($ro->table_name)->get($fields);
 		return $list->toArray();
 	}
 
