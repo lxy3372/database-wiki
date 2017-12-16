@@ -144,9 +144,20 @@ class DocsBusi extends BaseBusi
             $data['parameters'][] = $this->packParam($property);
         }
 
-        return [
-            'post' => $data
-        ];
+	    $result = [];
+	    if (Arr::get($object, 'properties.get')) {
+		    $result['get'] = $data;
+	    }
+	    if (Arr::get($object, 'properties.post')) {
+		    $result['post'] = $data;
+	    }
+	    if (Arr::get($object, 'properties.put')) {
+		    $result['put'] = $data;
+	    }
+	    if (Arr::get($object, 'properties.delete')) {
+		    $result['delete'] = $data;
+	    }
+	    return $result ? : ['post' => $data];
     }
 
     private function packParam(array $object)

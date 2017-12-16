@@ -12,6 +12,7 @@ namespace App\Http\Requests;
 /**
  * Class TableDetailRo
  *
+ * @post
  * @url /table/detail
  * @package App\Http\Requests
  */
