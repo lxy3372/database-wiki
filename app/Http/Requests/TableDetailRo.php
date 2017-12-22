@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Ricky.liu@huolala.cn
+ * User: Me@rikyliu.com
  * Date: 2017-07-07
  * Time: 11:32
  */
@@ -12,7 +12,7 @@ namespace App\Http\Requests;
 /**
  * Class TableDetailRo
  *
- * @post
+ * @get
  * @url /table/detail
  * @package App\Http\Requests
  */

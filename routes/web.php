@@ -11,13 +11,14 @@
 |
 */
 
-Route::get('/', 'DBController@index');
-Route::post('/', 'DBController@index');
+Route::get('/', function () {
+	return view('welcome');	
+});
+
+Route::get('/db', 'DBController@index');
 
 Route::get('/table/list', 'TableListController@index');
-Route::post('/table/list', 'TableListController@index');
 
 Route::get('/table/detail', 'TableDetailController@index');
-Route::post('/table/detail', 'TableDetailController@index');
 
 Route::get('/docs', 'DocsController@index');
