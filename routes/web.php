@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-	return view('welcome');
+	return view('index');
 });
 
 Route::get('/index', function () {
@@ -20,7 +20,6 @@ Route::get('/index', function () {
 });
 
 Route::get('/db', 'DBController@index');
-Route::post('/db', 'DBController@index');
 
 Route::get('/table/list', 'TableListController@index');
 
