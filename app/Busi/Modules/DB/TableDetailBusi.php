@@ -31,7 +31,7 @@ class TableDetailBusi extends BaseBusi
 	public function handle(TableDetailRo $ro)
 	{
 		$fields = ['table_schema', 'table_name', 'column_name', 'column_default', 'is_nullable', 'data_type', 'character_set_name', 'column_type', 'column_comment','column_key'];
-		$list = Columns::whereTableSchema($ro->db)->whereTableName($ro->table_name)->get($fields);
+		$list = Columns::whereTableSchema($ro->db)->whereTableName($ro->table)->get($fields);
 		return $list->toArray();
 	}
 

@@ -20,7 +20,7 @@ class DBListBusi extends BaseBusi
 	
 	public function handle(DBListRo $req)
 	{
-		$list = $this->getDbList(['schema_name', 'default_character_set_name'], ['test']);
+		$list = $this->getDbList(['schema_name', 'default_character_set_name as character'], []);
 		return $list->toArray();
 	}
 

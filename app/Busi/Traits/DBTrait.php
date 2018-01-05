@@ -24,7 +24,7 @@ trait DBTrait
 	 */
 	protected function getDbList($fields = ['schema_name', 'default_character_set_name'], $dbs=[])
 	{
-		$not_db = ['information_schema', 'mysql','performance_schema'];
+		$not_db = ['information_schema', 'mysql','performance_schema', 'sys'];
 		$list = Schemata::whereNotIn('schema_name', $not_db)->when($dbs ,function($query) use ($dbs) {
 			return $query->whereIn('schema_name', $dbs);
 		})->get($fields);

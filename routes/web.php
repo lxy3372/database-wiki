@@ -20,6 +20,7 @@ Route::get('/index', function () {
 });
 
 Route::get('/db', 'DBController@index');
+Route::post('/db', 'DBController@index');
 
 Route::get('/table/list', 'TableListController@index');
 
