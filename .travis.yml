@@ -1,15 +1,13 @@
 language: php
 php:
   - 7.1
+  - 5.6
 service:
   - mysql
 before_script:
-  - composer install
-  - composer dump-autoload
+  - composer install --prefer-dist --optmize-autoloader --quiet
   - cp .env.travis .env
-  - php artisan jwt:generate
-  - php artisan key:generate
-  - php artisan vendor:publish
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS jokes ;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS luffy;'
   - php artisan migrate
-script: phpunit
+  - sed -i 's/luffy/information_schema/g' .env
+script:  ./vendor/phpunit/phpunit/phpunit -c phpunit.xml
