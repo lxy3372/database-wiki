@@ -5,7 +5,7 @@ php:
 service:
   - mysql
 before_script:
-  - composer install --prefer-dist --optmize-autoloader --quiet
+  - composer install --prefer-dist
   - cp .env.travis .env
   - mysql -e 'CREATE DATABASE IF NOT EXISTS luffy;'
   - php artisan migrate
