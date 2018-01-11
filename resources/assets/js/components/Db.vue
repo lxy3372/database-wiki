@@ -21,8 +21,8 @@
             </span>
             </div> </div>
         <div class="container-fluid pull-left" style="width:75%; padding:0px  30px">
-            <transition name="slide-fade" mode="out-in">
-                <router-view></router-view>
+            <transition >
+                <router-view :key="key"></router-view>
             </transition>
         </div>
     </div>
@@ -42,6 +42,11 @@
                     }.bind(this)).catch(function (err) {
                 console.log(err)
             })
+        },
+        computed: {
+            key() {
+                return this.$route.path.replace(/\//g, '_')
+            }
         },
         data() {
             return {ret: {}, total: 0, db: '', search_tables: '' }
@@ -97,4 +102,5 @@
     .search{
         min-width:300px;
     }
+
 </style>

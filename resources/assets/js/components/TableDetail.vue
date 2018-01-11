@@ -2,12 +2,12 @@
         <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h2 class="panel-title text-center">
-                        <span ></span>
-                        {{ db }} . {{ table }}
+                    <h2 class="panel-title text-center table-title">
+                        {{ db }}  &middot;  {{ table }}
                     </h2>
                 </div>
-                <table class="table table-bordered table-striped table-hover">
+                <pulse-loader  v-if="loading" :name="loading" color="gray" size="10px" class="text-center" style="padding:30px;"></pulse-loader>
+                <table v-else class="table table-bordered table-striped table-hover">
                     <thead>
                     <tr>
                         <th class="">字段名</th>
@@ -34,6 +34,8 @@
 </template>
 
 <script>
+    import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+
     export default {
         name : 'TableDetail',
         mounted() {
@@ -41,7 +43,7 @@
             this.getDetail()
         },
         data() {
-        	return { ret:{}, total:0}
+        	return { ret:{}, total:0, loading: true}
         },
         props: {
             db: String,
@@ -49,6 +51,9 @@
         },
         watch: {
           '$route': ['getDetail']
+        },
+        components: {
+            PulseLoader
         },
         methods: {
             getDetail: function()
@@ -66,6 +71,9 @@
                                 this.$router.push({path:'/not_found/'+this.db+'.'+this.table});
                                 return ;
                             }
+                            this.$nextTick(function(){
+                                this.loading = false;
+                            });
                         }.bind(this)).catch(function(err){
                     console.log(err)
                 })
@@ -73,3 +81,10 @@
         }
     }
 </script>
+
+<style>
+    .table-title
+    {
+        font-size:20px;
+    }
+</style>
