@@ -13,6 +13,7 @@ use App\Busi\Modules\BaseBusi;
 use App\Http\Requests\TableDetailRo;
 use App\Models\Columns;
 use App\Models\Tables;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class TableDetailBusi

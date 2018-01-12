@@ -21,8 +21,17 @@ import axios from 'axios';
 import TableDetail from './components/TableDetail.vue';
 import Welcome from './components/Welcome.vue';
 import NotFound from './components/NotFound.vue';
+import VueHighlightJS from 'vue-highlightjs'
+
+// Tell Vue.js to use vue-highlightjs 
+VueHighlightJS.highlightCode =   function () { //自定义highlightCode方法，将只执行一次的逻辑去掉
+    let blocks = document.querySelectorAll('precode');
+        [].forEach.call(blocks, hljs.highlightBlock);
+};
+window.Vue.use(VueHighlightJS)
 Vue.component('db', require('./components/Db.vue'));
 Vue.prototype.$http = axios;
+
 
 const routes = [
     { path: '/', component: Welcome},
